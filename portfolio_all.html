@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SewingRox</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Pacifico&display=swap' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="brand">
+                <a href="index.html"><img src="images/Logo.png" id="brandImg"></a>
+            </div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <a href="shop.html">Shop</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="portfolio_all.html">Portfolio</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="about.html">About Me</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Portfolio</h1>
+            </div>
+        </div>
+        <!----------CONTENT---------->
+        <div class="content">
+            <!----------PROJECT---------->
+            <div class="content-project">
+                <div class="title">
+                    <img src="images/ArrowLeftBlack.png" onclick="slideLeft()" id="leftArrow">
+                    <div class="slide-txt-wrapper" id="slideShow">
+                        <div class="slide slide1" id="initialSlide">All Projects</div>
+                        <div class="slide">Clothes</div>
+                        <div class="slide">Accessories</div>
+                    </div>
+                    <img src="images/ArrowRightBlack.png" onclick="slideRight()" id="rightArrow">
+                </div>
+                <div class="content-grid" id="grid">
+                    <div class="grid-element clothes">
+                        <div class="project-wrapper">
+                            <a href="projects/projet3/project3.html">
+                                <h3>I'm a princess</h3>
+                                <img src="projects/projet3/img1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid-element accessories">
+                        <div class="project-wrapper">
+                            <a href="projects/projet2/project2.html">
+                                <h3>Bags</h3>
+                                <img src="projects/projet2/img1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid-element clothes">
+                        <div class="project-wrapper">
+                            <a href="projects/projet1/project1.html">
+                                <h3>A nice top</h3>
+                                <img src="projects/projet1/img1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid-element clothes">
+                        <div class="project-wrapper" id="grid_element">
+                            <a href="projects/projet0/project0.html">
+                                <h3>A cute dress</h3>
+                                <img src="projects/projet0/img1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">
+            <div class="footer-left-side">
+                <div class="footer-instagram">
+                    <a href="http://www.instagram.com">
+                        <img src="images/Instagram_icon.png" id="instaImg">
+                        <p id="instaTxt">@Sewing_Rox</p>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-right-side">
+                <a href="http://www.google.com">
+                    <p>Website made by</p>
+                    <p>Ennache</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    /* Parralax + Sticky navigation bar*/
+    var navBar = document.getElementById('navBar');
+    var brandImg = document.getElementById('brandImg');
+    var rightSide = document.getElementById('rightSide');
+    var brandImgHeight = "75px";
+    brandImg.style.height = brandImgHeight;
+
+    var banner = document.getElementById('bannerWrapper');
+    window.addEventListener("scroll", function () {
+        banner.style.backgroundPositionY = (window.scrollY * (-0.5)) + 'px';
+        if (window.scrollY > 150) {
+            brandImg.style.height = (rightSide.offsetHeight - 3) + "px";
+        }
+        else {
+            brandImg.style.height = brandImgHeight;
+        }
+    })
+
+    /*Width Responsive*/
+    var grid = document.getElementById('grid');
+    var grid_element = document.getElementById('grid_element');
+    if ((grid_element.offsetWidth * 3) + 20 < window.innerWidth) {
+        grid.style.gridTemplateColumns = "1fr 1fr 1fr";
+    }
+    else if ((grid_element.offsetWidth * 2) + 20 < window.innerWidth) {
+        grid.style.gridTemplateColumns = "1fr 1fr";
+    }
+    else {
+        grid.style.gridTemplateColumns = "1fr";
+    }
+
+    window.addEventListener("resize", function () {
+        if ((grid_element.offsetWidth * 3) + 20 < window.innerWidth) {
+            grid.style.gridTemplateColumns = "1fr 1fr 1fr";
+        }
+        else if ((grid_element.offsetWidth * 2) + 20 < window.innerWidth) {
+            grid.style.gridTemplateColumns = "1fr 1fr";
+        }
+        else {
+            grid.style.gridTemplateColumns = "1fr";
+        }
+    })
+
+    /* Empty space banner height */
+    var bannerTopSpace = document.getElementById('bannerTopSpace');
+    bannerTopSpace.style.height = navBar.offsetHeight + 'px';
+
+    /*Logo footer size*/
+    var instaImg = document.getElementById('instaImg');
+    var instaTxt = document.getElementById('instaTxt');
+    instaImg.height = 0;
+    instaImg.height = instaTxt.offsetHeight * (2);
+
+    /*Slide Show Title Portfolio*/
+    var leftArrow = document.getElementById('leftArrow');
+    var rightArrow = document.getElementById('rightArrow');
+    var clothes = grid.getElementsByClassName("clothes");
+    var accessories = grid.getElementsByClassName("accessories");
+
+    var initialSlide = document.getElementById('initialSlide');
+    initialSlide.style.marginLeft = "0%";
+    function slideRight() {
+        if (initialSlide.style.marginLeft == "0%") {
+            initialSlide.style.marginLeft = "-100%";
+
+            /*-100 = Clothes*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "none";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "";
+            }
+
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "-200%";
+
+            /*-200 = Accessories*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "none";
+            }
+        }
+        else {
+            initialSlide.style.marginLeft = "0%";
+
+            /*0 = All*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "";
+            }
+        }
+    }
+    function slideLeft() {
+        if (initialSlide.style.marginLeft == "-200%") {
+            initialSlide.style.marginLeft = "-100%";
+
+            /*-100 = Clothes*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "none";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "";
+            }
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "0%";
+
+            /*0 = All*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "";
+            }
+        }
+        else {
+            initialSlide.style.marginLeft = "-200%";
+
+            /*-200 = Accessories*/
+            for (i = 0; i < accessories.length; i++) {
+                accessories[i].style.display = "";
+            }
+            for (i = 0; i < clothes.length; i++) {
+                clothes[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+
+</html>

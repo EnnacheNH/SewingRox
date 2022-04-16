@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SewingRox</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Pacifico&display=swap' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="brand">
+                <a href="../../index.html"><img src="../../images/Logo.png" id="brandImg"></a>
+            </div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <a href="../../shop.html">Shop</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="../../portfolio_all.html">Portfolio</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="../../about.html">About Me</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Portfolio</h1>
+            </div>
+        </div>
+        <!----------CONTENT---------->
+        <div class="content">
+            <!----------PROJECT---------->
+            <div class="content-project">
+                <div class="side-decoration-string">
+                    <img src="../../images/SideString.png">
+                </div>
+                <div class="side-decoration-scissors">
+                    <img src="../../images/SideScissors.png">
+                </div>
+                <div class="img-and-text" id="grid">
+                    <div class="slide-img" id="grid_element_img">
+                        <div class="arrows" id="arrowsContainer">
+                            <img src="../../images/ArrowLeft.png" onclick="slideLeft()" id="leftArrow">
+                            <img src="../../images/ArrowRight.png" onclick="slideRight()" id="rightArrow">
+                        </div>
+                        <div class="slide-img-wrapper" id="slideShow">
+                            <div class="slide1" id="initialSlide"><img src="img1.jpg"></div>
+                            <div class="slide2"><img src="img2.jpg"></div>
+                            <div class="slide3"><img src="img3.jpg"></div>
+                        </div>
+                    </div>
+                    <div class="text" id="grid_element_txt">
+                        <h3>Bags</h3>
+                        <p>This is the text for the project, where you say whatever you want and how it was difficult
+                            but now it's very pretty and stuff.</p>
+                    </div>
+                </div>
+                <div class="see-more-button">
+                    <a href="../../portfolio_all.html">
+                        See more
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">
+            <div class="footer-left-side">
+                <div class="footer-instagram">
+                    <a href="http://www.instagram.com">
+                        <img src="../../images/Instagram_icon.png" id="instaImg">
+                        <p id="instaTxt">@Sewing_Rox</p>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-right-side">
+                <a href="http://www.google.com">
+                    <p>Website made by</p>
+                    <p>Ennache</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    /* Parralax + Sticky navigation bar*/
+    var navBar = document.getElementById('navBar');
+    var brandImg = document.getElementById('brandImg');
+    var rightSide = document.getElementById('rightSide');
+    var brandImgHeight = "75px";
+    brandImg.style.height = brandImgHeight;
+
+    var banner = document.getElementById('bannerWrapper');
+    window.addEventListener("scroll", function () {
+        banner.style.backgroundPositionY = (window.scrollY * (-0.5)) + 'px';
+        if (window.scrollY > 150) {
+            brandImg.style.height = (rightSide.offsetHeight - 3) + "px";
+        }
+        else {
+            brandImg.style.height = brandImgHeight;
+        }
+    })
+
+    /*Width Responsive*/
+    var grid = document.getElementById('grid');
+    var grid_element_img = document.getElementById('grid_element_img');
+    var grid_element_txt = document.getElementById('grid_element_txt');
+    var grid_elements_width = 400 + 400 + 100;
+
+    if (grid_elements_width + 20 < window.innerWidth) {
+        grid.style.gridTemplateColumns = "1fr 1fr";
+        grid_element_img.style.justifyContent = "end";
+        grid_element_img.style.marginRight = "50px";
+
+        grid_element_txt.style.textAlign = "left";
+        grid_element_txt.childNodes[3].style.marginLeft = "0px";
+    }
+    else {
+        grid.style.gridTemplateColumns = "1fr";
+        grid_element_img.style.justifyContent = "center";
+        grid_element_img.style.marginRight = "0px";
+
+        grid_element_txt.style.textAlign = "center";
+        grid_element_txt.childNodes[3].style.marginLeft = "auto";
+    }
+
+    window.addEventListener("resize", function () {
+        if (grid_elements_width + 20 < window.innerWidth) {
+            grid.style.gridTemplateColumns = "1fr 1fr";
+            grid_element_img.style.justifyContent = "end";
+            grid_element_img.style.marginRight = "50px";
+
+            grid_element_txt.style.textAlign = "left";
+            grid_element_txt.childNodes[3].style.marginLeft = "0px";
+        }
+        else {
+            grid.style.gridTemplateColumns = "1fr";
+            grid_element_img.style.justifyContent = "center";
+            grid_element_img.style.marginRight = "0px";
+
+            grid_element_txt.style.textAlign = "center";
+            grid_element_txt.childNodes[3].style.marginLeft = "auto";
+        }
+    })
+
+    /* Empty space banner height */
+    var bannerTopSpace = document.getElementById('bannerTopSpace');
+    bannerTopSpace.style.height = navBar.offsetHeight + 'px';
+
+    /*Logo footer size*/
+    var instaImg = document.getElementById('instaImg');
+    var instaTxt = document.getElementById('instaTxt');
+    instaImg.height = 0;
+    instaImg.height = instaTxt.offsetHeight * (2);
+
+    /*Slide Show*/
+    document.getElementById('arrowsContainer').style.height = document.getElementById('slideShow').offsetHeight + "px";
+
+    var arrowWidth = "75px";
+    var leftArrow = document.getElementById('leftArrow');
+    var rightArrow = document.getElementById('rightArrow');
+    leftArrow.style.width = "0px";
+    rightArrow.style.width = arrowWidth;
+
+    var initialSlide = document.getElementById('initialSlide');
+    initialSlide.style.marginLeft = "0%";
+    function slideRight() {
+        if (initialSlide.style.marginLeft == "0%") {
+            initialSlide.style.marginLeft = "-100%";
+            leftArrow.style.width = arrowWidth;
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "-200%";
+            rightArrow.style.width = "0px";
+        }
+    }
+    function slideLeft() {
+        if (initialSlide.style.marginLeft == "-200%") {
+            initialSlide.style.marginLeft = "-100%";
+            rightArrow.style.width = arrowWidth;
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "0%";
+            leftArrow.style.width = "0px";
+        }
+    }
+
+</script>
+
+</html>

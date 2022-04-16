@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SewingRox</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Pacifico&display=swap' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="brand">
+                <a href="index.html"><img src="images/Logo.png" id="brandImg"></a>
+            </div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <a href="shop.html">Shop</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="portfolio_all.html">Portfolio</a>
+            </div>
+            <div class="nav-link-wrapper">
+                <a href="about.html">About Me</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Shop</h1>
+            </div>
+        </div>
+        <!----------CONTENT---------->
+        <div class="content">
+            <h2>Coming soon !</h2>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">
+            <div class="footer-left-side">
+                <div class="footer-instagram">
+                    <a href="http://www.instagram.com">
+                        <img src="images/Instagram_icon.png" id="instaImg">
+                        <p id="instaTxt">@Sewing_Rox</p>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-right-side">
+                <a href="http://www.google.com">
+                    <p>Website made by</p>
+                    <p>Ennache</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    /* Parralax + Sticky navigation bar*/
+    var navBar = document.getElementById('navBar');
+    var brandImg = document.getElementById('brandImg');
+    var rightSide = document.getElementById('rightSide');
+    var brandImgHeight = "75px";
+    brandImg.style.height = brandImgHeight;
+
+    var banner = document.getElementById('bannerWrapper');
+    window.addEventListener("scroll", function () {
+        banner.style.backgroundPositionY = (window.scrollY * (-0.5)) + 'px';
+        if (window.scrollY > 150) {
+            brandImg.style.height = (rightSide.offsetHeight - 3) + "px";
+        }
+        else {
+            brandImg.style.height = brandImgHeight;
+        }
+    })
+
+    /*Width Responsive*/
+
+    /* Empty space banner height */
+    var bannerTopSpace = document.getElementById('bannerTopSpace');
+    bannerTopSpace.style.height = navBar.offsetHeight + 'px';
+
+    /*Logo footer size*/
+    var instaImg = document.getElementById('instaImg');
+    var instaTxt = document.getElementById('instaTxt');
+    instaImg.height = 0;
+    instaImg.height = instaTxt.offsetHeight * (2);
+</script>
+
+</html>

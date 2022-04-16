@@ -1,0 +1,281 @@
+/*--------------------Master styles--------------------*/
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0px;
+    text-align: center;
+
+    background-color: rgb(255, 240, 255);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/*--------------------Fonts--------------------*/
+h1 {
+    font-family: "Playfair Display", sans-serif;
+    color: white;
+    font-size: 7em;
+}
+
+h2 {
+    font-family: "Playfair Display", sans-serif;
+    color: black;
+    font-size: 4em;
+
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-family: "Playfair Display", sans-serif;
+    color: black;
+    font-size: 3em;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+p {
+    color: black;
+    font-size: 1.5em;
+    margin: 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/*--------------------Navbar styles--------------------*/
+
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 15px 30px;
+
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+
+    font-family: "Playfair Display", sans-serif;
+}
+
+.left-side > .brand img {
+    transition: 0.5s;
+}
+
+.right-side {
+    display: flex;
+}
+
+.nav-wrapper > .right-side > div{
+    margin-left: 30px;
+    font-size: 2em;
+}
+
+.nav-link-wrapper {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+    color: white;
+    transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover{
+    border-bottom: 1px solid white;
+}
+
+/*--------------------Banner Styles--------------------*/
+.banner-wrapper {
+    background:linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url(images/BannerBackground.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+    background-position-y: 0px;
+}
+
+/*--------------------Content Styles--------------------*/
+
+/*-----Welcome-----*/
+.content-welcome {
+    background-color: rgba(255, 200, 255, 0.3);
+    padding: 60px 0px;
+}
+/*-----Side Decorations-----*/
+.side-decoration-string {
+    position: absolute;
+    height: 680px;
+    left: 4%;
+
+    display: flex;
+    align-items: center;
+}
+.side-decoration-string img {
+    transform: scaleX(1);
+    height: 680px;
+    z-index: -10;
+}
+
+.side-decoration-scissors {
+    position: absolute;
+    height: 680px;
+    right: 0%;
+
+    display: flex;
+    align-items: center;
+}
+.side-decoration-scissors img {
+    transform: scaleX(1);
+    width: 600px;
+    z-index: -10;
+}
+/*-----Project Slide Show-----*/
+.content-project {
+    padding: 60px 0px;
+}
+
+.img-and-text {
+    display: grid;
+}
+
+.slide-img{
+    display: flex;
+}
+
+.slide-img > .arrows {
+    position: absolute;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide-img-wrapper{
+    display: flex;
+    width: 400px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide-img-wrapper img{
+    width: 400px;
+}
+
+.slide-img-wrapper > .slide1 {
+    margin-left: -200%;
+    transition: 1s;
+}
+
+.img-and-text h3{
+    margin-top: 60px;
+}
+
+.img-and-text p{
+    width: 400px;
+    margin-right: auto;
+}
+
+.see-more-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.see-more-button a {
+    padding: 8px 30px;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/*--------------------Portfolio Title--------------------*/
+.content-project > .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.content-project > .title img{
+    width: 40px;
+}
+
+.slide-txt-wrapper{
+    display: flex;
+    width: 400px;
+    height: 85px;
+    overflow: hidden;
+}
+
+.slide-txt-wrapper > .slide{
+    font-family: "Playfair Display", sans-serif;
+    color: black;
+    font-size: 4em;
+    
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 400px;
+}
+
+.slide-txt-wrapper > .slide1{
+    transition: 1s;
+}
+
+
+/*--------------------Portfolio Grid--------------------*/
+.content-grid {
+    display: grid;
+}
+
+.grid-element{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.grid-element > .project-wrapper{
+    width: 425px;
+}
+
+.grid-element img{
+    width: 400px;
+}
+
+.grid-element h3 {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+/*--------------------Footer Styles--------------------*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+}
+
+.footer p {
+    color: white;
+}
+
+.footer img{
+    margin-right: 15px;
+}
+
+.footer-instagram a{
+    display: flex;
+    align-items: center;
+}
+
+.footer-right-side{
+    font-size: 0.5em;
+}
